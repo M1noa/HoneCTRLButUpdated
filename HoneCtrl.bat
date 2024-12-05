@@ -64,7 +64,7 @@ echo     %COL%[33m2.%COL%[37m If you don't know what a tweak is, do not use it a
 echo.
 echo     %COL%[33m3.%COL%[37m Even though we have an automatic restore point feature, we highly recommend making a manual restore point before running.
 echo.
-echo   For any questions and/or concerns, please go to our GitHub: https://github.com/M1noa/HoneCTRLButUpdated
+echo   For any questions and/or concerns, please go to our GitHub: https://github.com/luke-beep/HoneCTRL
 echo.
 echo   Please enter "I agree" without quotes to continue:
 echo.
@@ -78,7 +78,7 @@ reg add "HKCU\Software\HoneCTRL" /v "Disclaimer" /f >nul 2>&1
 set local=2.9
 set localtwo=%LOCAL%
 if exist "%TEMP%\Updater.bat" DEL /S /Q /F "%TEMP%\Updater.bat" >nul 2>&1
-curl -g -L -# -o "%TEMP%\Updater.bat" "https://raw.githubusercontent.com/M1noa/HoneCTRLButUpdated/main/Files/HoneCTRLVersion" >nul 2>&1
+curl -g -L -# -o "%TEMP%\Updater.bat" "https://raw.githubusercontent.com/luke-beep/HoneCTRL/main/Files/HoneCTRLVersion" >nul 2>&1
 call "%TEMP%\Updater.bat"
 if "%LOCAL%" gtr "%LOCALTWO%" (
 	cls
@@ -100,7 +100,7 @@ if "%LOCAL%" gtr "%LOCALTWO%" (
 	%SYSTEMROOT%\System32\choice.exe /c:YN /n /m "%DEL%                                >:"
 	set choice=!errorlevel!
 	if !choice! == 1 (
-		curl -L -o %0 "https://github.com/M1noa/HoneCTRLButUpdated/releases/latest/download/HoneCTRL.Bat" >nul 2>&1
+		curl -L -o %0 "https://github.com/luke-beep/HoneCTRL/releases/latest/download/HoneCTRL.Bat" >nul 2>&1
 		call %0
 		exit /b
 	)
@@ -163,42 +163,32 @@ call :HoneCTRLTitle
 echo.
 echo                                        %COL%[90m HoneCTRL is a free and open-source desktop utility
 echo                                        %COL%[90m    made to improve your day-to-day productivity
+
+
+echo                                           %COL%[33m[%COL%[37m 1 %COL%[33m]%COL%[37m Optimizations       %COL%[33m[%COL%[37m 2 %COL%[33m]%COL%[37m Game Settings
 echo.
+echo																			%COL%[33m[%COL%[37m 3 %COL%[33m]%COL%[37m SystemTweaks (NEW) 
 echo.
+echo                                     %COL%[33m[%COL%[37m 4 %COL%[33m]%COL%[37m Media         %COL%[33m[%COL%[37m 5 %COL%[33m]%COL%[90m Privacy        %COL%[33m[%COL%[37m 6 %COL%[33m]%COL%[37m Aesthetics
+
 echo.
-echo.
-echo.
-echo.
-echo                                           %COL%[33m[%COL%[37m 1 %COL%[33m]%COL%[37m Optimizations        %COL%[33m[%COL%[37m 2 %COL%[33m]%COL%[37m Game Settings
-echo.
-echo.
-echo.
-echo.
-echo                                     %COL%[33m[%COL%[37m 3 %COL%[33m]%COL%[37m Media         %COL%[33m[%COL%[37m 4 %COL%[33m]%COL%[90m Privacy        %COL%[33m[%COL%[37m 5 %COL%[33m]%COL%[37m Aesthetics
-echo.
-echo.
-echo.
-echo.
-echo                                               %COL%[33m[%COL%[37m 6 %COL%[33m]%COL%[37m Advanced           %COL%[33m[%COL%[37m 7 %COL%[33m]%COL%[37m More
-echo.
-echo.
-echo.
-echo.
-echo.
-echo.
+echo                                               %COL%[33m[%COL%[37m 7 %COL%[33m]%COL%[37m Advanced           %COL%[33m[%COL%[37m 8 %COL%[33m]%COL%[37m More
+
+
 echo                                                            %COL%[31m[ X to close ]%COL%[37m
 echo.
 %SYSTEMROOT%\System32\choice.exe /c:1234567XD /n /m "%DEL%                                        Select a corresponding number to the options above > "
 set choice=%errorlevel%
 if "%choice%"=="1" set PG=TweaksPG1 & goto Tweaks
 if "%choice%"=="2" goto GameSettings
-if "%choice%"=="3" goto HoneCTRLRenders
-if "%choice%"=="4" call:Comingsoon
-if "%choice%"=="5" call:Aesthetics
-if "%choice%"=="6" goto disclaimer2
-if "%choice%"=="7" goto More
-if "%choice%"=="8" exit /b
-if "%choice%"=="9" goto Dog
+if "%choice%"=="3" goto SystemTweaks
+if "%choice%"=="4" goto HoneCTRLRenders
+if "%choice%"=="5" call:Comingsoon
+if "%choice%"=="6" call:Aesthetics
+if "%choice%"=="7" goto disclaimer2
+if "%choice%"=="8" goto More
+if "%choice%"=="9" exit /b
+if "%choice%"=="10" goto Dog
 goto MainMenu
 
 :HoneCTRLTitle
@@ -236,6 +226,63 @@ echo.
 echo                                                    %COL%[97m[ Press any key to go back ]%COL%[37m
 pause >nul
 goto :eof
+
+:SystemTweaks
+cls
+echo.
+echo                                                               %COL%[34m%COL%[1mSystem Tweaks%COL%[0m
+echo.
+echo                                                         %COL%[33m[%COL%[37m 1 %COL%[33m]%COL%[37m Disable GameBar
+echo                                                         %COL%[33m[%COL%[37m 2 %COL%[33m]%COL%[37m Disable Cortana
+echo                                                         %COL%[33m[%COL%[37m 3 %COL%[33m]%COL%[37m Disable Bluetooth
+echo                                                         %COL%[33m[%COL%[37m 4 %COL%[33m]%COL%[37m Install Process Explorer
+echo                                                         %COL%[33m[%COL%[37m 5 %COL%[33m]%COL%[37m Install Total Registry
+echo                                                         %COL%[33m[%COL%[37m 6 %COL%[33m]%COL%[37m Optimize Drives
+echo                                                         %COL%[33m[%COL%[37m 7 %COL%[33m]%COL%[37m Change DNS
+echo                                                         %COL%[33m[%COL%[37m 8 %COL%[33m]%COL%[37m System-wide Ad Blocker
+echo                                                         %COL%[33m[%COL%[37m 9 %COL%[33m]%COL%[37m Back to Main Menu
+echo.
+echo                                                 %COL%[90m[ Select an option ]         %COL%[31m[ X to close ]%COL%[37m
+echo.
+%SYSTEMROOT%\System32\choice.exe /c:123456789BX /n /m "%DEL%                                        Select a corresponding number to the options above >"
+set choice=%errorlevel%
+if "%choice%"=="1" goto DisableGameBar
+if "%choice%"=="2" goto DisableCortana
+if "%choice%"=="3" goto DisableBluetooth
+if "%choice%"=="4" goto InstallProcessExplorer
+if "%choice%"=="5" goto InstallTotalRegistry
+if "%choice%"=="6" goto OptimizeDrives
+if "%choice%"=="7" goto ChangeDNS
+if "%choice%"=="8" goto SystemWideAdBlocker
+if "%choice%"=="9" goto MainMenu
+if "%choice%"=="10" exit /b
+
+:DisableGameBar
+cls
+echo.
+echo                                                     `.
+echo.
+echo                                           %COL%[1;4;34mDisable Windows GameBar%COL%[0m
+echo.
+echo   This will completely disable Windows Game DVR and GameBar recording features
+echo   to reduce system overhead and improve performance.
+echo.
+echo   %COL%[33m[ %COL%[37m1 %COL%[33m]%COL%[37m Proceed
+echo   %COL%[33m[ %COL%[37m2 %COL%[33m]%COL%[37m Cancel
+echo.
+%SYSTEMROOT%\System32\choice.exe /c:12 /n /m "%DEL%                                        Confirm action >"
+if %errorlevel% == 2 goto SystemTweaks
+
+reg add "HKCU\System\GameConfigStore" /v "GameDVR_Enabled" /t REG_DWORD /d 0 /f
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR" /v "AppCaptureEnabled" /t REG_DWORD /d 0 /f
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR" /v "AudioCaptureEnabled" /t REG_DWORD /d 0 /f
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR" /v "CursorCaptureEnabled" /t REG_DWORD /d 0 /f
+
+echo.
+echo                                                   %COL%[37m GameBar has been disabled
+echo.
+pause
+goto SystemTweaks
 
 :Tweaks
 Mode 130,45
@@ -438,7 +485,7 @@ start /b net start STR >nul 2>&1
 if "%TMROF%" == "%COL%[91mOFF" (
 	if not exist SetTimerResolutionService.exe (
 		REM https://forums.guru3d.com/threads/windows-timer-resolution-tool-in-form-of-system-service.376458/
-		curl -g -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Resources\SetTimerResolutionService.exe" "https://github.com/M1noa/HoneCTRLButUpdated/raw/main/Files/SetTimerResolutionService.exe"
+		curl -g -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Resources\SetTimerResolutionService.exe" "https://github.com/luke-beep/HoneCTRL/raw/main/Files/SetTimerResolutionService.exe"
 		%SYSTEMROOT%\Microsoft.NET\Framework\v4.0.30319\InstallUtil.exe /i SetTimerResolutionService.exe
 	)
 	reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\kernel" /v "GlobalTimerResolutionRequests" /t REG_DWORD /d 1 /f REM Windows 11 & Windows Server 2022
@@ -801,7 +848,7 @@ if "%NPIOF%" == "%COL%[91mOFF" (
 	curl -g -L -# -o %SYSTEMDRIVE%\HoneCTRL\Resources\nvidiaProfileInspector.zip "https://github.com/Orbmu2k/nvidiaProfileInspector/releases/latest/download/nvidiaProfileInspector.zip"
 	powershell -NoProfile Expand-Archive '%SYSTEMDRIVE%\HoneCTRL\Resources\nvidiaProfileInspector.zip' -DestinationPath '%SYSTEMDRIVE%\HoneCTRL\Resources\nvidiaProfileInspector\'
 	del /F /Q "%SYSTEMDRIVE%\HoneCTRL\Resources\nvidiaProfileInspector.zip"
-	curl -g -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Resources\nvidiaProfileInspector\NVIDIAProfileInspector.nip" "https://raw.githubusercontent.com/M1noa/HoneCTRLButUpdated/main/Files/NVIDIAProfileInspector.nip"
+	curl -g -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Resources\nvidiaProfileInspector\NVIDIAProfileInspector.nip" "https://raw.githubusercontent.com/luke-beep/HoneCTRL/main/Files/NVIDIAProfileInspector.nip"
 	cd "%SYSTEMDRIVE%\HoneCTRL\Resources\nvidiaProfileInspector\"
 	nvidiaProfileInspector.exe "NVIDIAProfileInspector.nip"
 ) >nul 2>&1 else (
@@ -811,7 +858,7 @@ if "%NPIOF%" == "%COL%[91mOFF" (
 	curl -g -L -# -o %SYSTEMDRIVE%\HoneCTRL\Resources\nvidiaProfileInspector.zip "https://github.com/Orbmu2k/nvidiaProfileInspector/releases/latest/download/nvidiaProfileInspector.zip"
 	powershell -NoProfile Expand-Archive '%SYSTEMDRIVE%\HoneCTRL\Resources\nvidiaProfileInspector.zip' -DestinationPath '%SYSTEMDRIVE%\HoneCTRL\Resources\nvidiaProfileInspector\'
 	del /F /Q "%SYSTEMDRIVE%\HoneCTRL\Resources\nvidiaProfileInspector.zip"
-	curl -g -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Resources\nvidiaProfileInspector\Base_Profile.nip" "https://raw.githubusercontent.com/M1noa/HoneCTRLButUpdated/main/Files/Base_Profile.nip"
+	curl -g -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Resources\nvidiaProfileInspector\Base_Profile.nip" "https://raw.githubusercontent.com/luke-beep/HoneCTRL/main/Files/Base_Profile.nip"
 	cd "%SYSTEMDRIVE%\HoneCTRL\Resources\nvidiaProfileInspector\"
 	nvidiaProfileInspector.exe "Base_Profile.nip"
 ) >nul 2>&1
@@ -898,7 +945,7 @@ if "%MITOF%" == "%COL%[91mOFF" (
 	reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management" /v "FeatureSettingsOverride" /t REG_DWORD /d "3" /f
 	reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management" /v "FeatureSettingsOverrideMask" /t REG_DWORD /d "3" /f
 	cd %TEMP%
-	if not exist "%TEMP%\NSudo.exe" curl -g -L -# -o "%TEMP%\NSudo.exe" "https://github.com/M1noa/HoneCTRLButUpdated/raw/main/Files/NSudo.exe"
+	if not exist "%TEMP%\NSudo.exe" curl -g -L -# -o "%TEMP%\NSudo.exe" "https://github.com/luke-beep/HoneCTRL/raw/main/Files/NSudo.exe"
 	NSudo -U:S -ShowWindowMode:Hide -wait cmd /c "reg add "HKLM\SYSTEM\CurrentControlSet\Services\TrustedInstaller" /v "Start" /t Reg_DWORD /d "3" /f"
 	NSudo -U:S -ShowWindowMode:Hide -wait cmd /c "sc start "TrustedInstaller""
 	NSudo -U:T -P:E -M:S -ShowWindowMode:Hide -wait cmd /c "ren %SYSTEMROOT%\System32\mcupdate_GenuineIntel.dll mcupdate_GenuineIntel.old"
@@ -918,7 +965,7 @@ if "%MITOF%" == "%COL%[91mOFF" (
 	reg delete "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management" /v FeatureSettingsOverride /f
 	reg delete "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management" /v FeatureSettingsOverrideMask /f
 	cd %TEMP%
-	if not exist "%TEMP%\NSudo.exe" curl -g -L -# -o "%TEMP%\NSudo.exe" "https://github.com/M1noa/HoneCTRLButUpdated/raw/main/Files/NSudo.exe"
+	if not exist "%TEMP%\NSudo.exe" curl -g -L -# -o "%TEMP%\NSudo.exe" "https://github.com/luke-beep/HoneCTRL/raw/main/Files/NSudo.exe"
 	NSudo -U:S -ShowWindowMode:Hide -wait cmd /c "reg add "HKLM\SYSTEM\CurrentControlSet\Services\TrustedInstaller" /v "Start" /t Reg_DWORD /d "2" /f"
 	NSudo -U:S -ShowWindowMode:Hide -wait cmd /c "sc start "TrustedInstaller"" 
 	NSudo -U:T -P:E -M:S -ShowWindowMode:Hide -wait cmd /c "ren %SYSTEMROOT%\System32\mcupdate_GenuineIntel.old mcupdate_GenuineIntel.dll"
@@ -945,7 +992,7 @@ echo.
 echo %COL%[91m  WARNING:
 echo %COL%[91m  This tweak is for Ethernet users only, if you're on Wi-Fi, do not run this tweak.
 echo.
-echo   %COL%[37mFor any questions and/or concerns, please go to our GitHub: https://github.com/M1noa/HoneCTRLButUpdated
+echo   %COL%[37mFor any questions and/or concerns, please go to our GitHub: https://github.com/luke-beep/HoneCTRL
 echo.
 echo   %COL%[37mPlease enter "I understand" without quotes to continue:
 echo.
@@ -1048,7 +1095,7 @@ echo.
 echo %COL%[91m  WARNING:
 echo %COL%[91m  This tweak is for ethernet users only, if you're on Wi-Fi, do not run this tweak.
 echo.
-echo   %COL%[37mFor any questions and/or concerns, please go to our GitHub: https://github.com/M1noa/HoneCTRLButUpdated
+echo   %COL%[37mFor any questions and/or concerns, please go to our GitHub: https://github.com/luke-beep/HoneCTRL
 echo.
 echo   %COL%[37mPlease enter "I understand" without quotes to continue:
 echo.
@@ -1227,8 +1274,8 @@ goto Tweaks
 cd %SYSTEMDRIVE%\HoneCTRL\Resources
 if "%AUDOF%" == "%COL%[91mOFF" (
 	if not exist nssm.exe (
-		curl -g -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Resources\nssm.exe" "https://github.com/M1noa/HoneCTRLButUpdated/raw/main/Files/nssm.exe"
-		curl -g -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Resources\REAL.exe" "https://github.com/M1noa/HoneCTRLButUpdated/raw/main/Files/REAL.exe"
+		curl -g -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Resources\nssm.exe" "https://github.com/luke-beep/HoneCTRL/raw/main/Files/nssm.exe"
+		curl -g -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Resources\REAL.exe" "https://github.com/luke-beep/HoneCTRL/raw/main/Files/REAL.exe"
 		nssm install HoneCTRLAudio "%SYSTEMDRIVE%\HoneCTRL\Resources\REAL.exe"
 		nssm set HoneCTRLAudio DisplayName HoneCTRL Audio Latency Reducer Service
 		nssm set HoneCTRLAudio Description Reduces Audio Latency
@@ -1248,7 +1295,7 @@ cls
 rmdir /S /Q "%SYSTEMDRIVE%\HoneCTRL\Resources\DeviceCleanupCmd\" >nul 2>&1
 del /F /Q "%SYSTEMDRIVE%\HoneCTRL\Resources\AdwCleaner.exe" >nul 2>&1
 del /F /Q "%SYSTEMDRIVE%\HoneCTRL\Resources\EmptyStandbyList.exe" >nul 2>&1
-curl -g -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Resources\EmptyStandbyList.exe" "https://github.com/M1noa/HoneCTRLButUpdated/raw/main/Files/EmptyStandbyList.exe"
+curl -g -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Resources\EmptyStandbyList.exe" "https://github.com/luke-beep/HoneCTRL/raw/main/Files/EmptyStandbyList.exe"
 curl -g -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Resources\DeviceCleanupCmd.zip" "https://www.uwe-sieber.de/files/DeviceCleanupCmd.zip"
 curl -g -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Resources\AdwCleaner.exe" "https://adwcleaner.malwarebytes.com/adwcleaner?channel=release"
 powershell -NoProfile Expand-Archive '%SYSTEMDRIVE%\HoneCTRL\Resources\DeviceCleanupCmd.zip' -DestinationPath '%SYSTEMDRIVE%\HoneCTRL\Resources\DeviceCleanupCmd\'
@@ -1290,11 +1337,11 @@ goto :eof
 :softRestart
 cls
 cd %TEMP%
-if not exist "%TEMP%\NSudo.exe" curl -g -L -# -o "%TEMP%\NSudo.exe" "https://github.com/M1noa/HoneCTRLButUpdated/raw/main/Files/NSudo.exe"
+if not exist "%TEMP%\NSudo.exe" curl -g -L -# -o "%TEMP%\NSudo.exe" "https://github.com/luke-beep/HoneCTRL/raw/main/Files/NSudo.exe"
 NSudo.exe -U:S -ShowWindowMode:Hide cmd /c "reg add "HKLM\SYSTEM\CurrentControlSet\Services\TrustedInstaller" /v "Start" /t Reg_DWORD /d "3" /f" >nul 2>&1
 NSudo.exe -U:S -ShowWindowMode:Hide cmd /c "sc start "TrustedInstaller"" >nul 2>&1
-if not exist "%TEMP%\restart64.exe" curl -g -L -# -o "%TEMP%\Restart64.exe" "https://github.com/M1noa/HoneCTRLButUpdated/raw/main/Files/restart64.exe"
-if not exist "%TEMP%\EmptyStandbyList.exe" curl -g -L -# -o "%TEMP%\EmptyStandbyList.exe" "https://github.com/M1noa/HoneCTRLButUpdated/raw/main/Files/EmptyStandbyList.exe"
+if not exist "%TEMP%\restart64.exe" curl -g -L -# -o "%TEMP%\Restart64.exe" "https://github.com/luke-beep/HoneCTRL/raw/main/Files/restart64.exe"
+if not exist "%TEMP%\EmptyStandbyList.exe" curl -g -L -# -o "%TEMP%\EmptyStandbyList.exe" "https://github.com/luke-beep/HoneCTRL/raw/main/Files/EmptyStandbyList.exe"
 taskkill /f /im explorer.exe >nul 2>&1
 cd %SYSTEMROOT% >nul 2>&1
 start explorer.exe >nul 2>&1
@@ -2837,7 +2884,7 @@ goto Accurate
 if not exist "%SYSTEMDRIVE%\Program Files (x86)\blur" call:blurinstall
 if %encoder% == NVENC (
 if not exist "%SYSTEMDRIVE%\HoneCTRL\Renders\FPSAccurate60Nvidia.cfg" ( 
-curl -g -k -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Renders\FPSAccurate60Nvidia.cfg" "https://raw.githubusercontent.com/M1noa/HoneCTRLButUpdated/main/Files/FPS/Accurate/60-120/Nvidia/FPSAccurate60Nvidia.cfg"
+curl -g -k -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Renders\FPSAccurate60Nvidia.cfg" "https://raw.githubusercontent.com/luke-beep/HoneCTRL/main/Files/FPS/Accurate/60-120/Nvidia/FPSAccurate60Nvidia.cfg"
 ) else (
 set config=FPSAccurate60Nvidia.cfg
 goto skip
@@ -2846,7 +2893,7 @@ goto skip
 
 if %encoder% == AMF (
 if not exist "%SYSTEMDRIVE%\HoneCTRL\Renders\FPSAccurate60AMD.cfg" ( 
-curl -g -k -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Renders\FPSAccurate60AMD.cfg" "https://raw.githubusercontent.com/M1noa/HoneCTRLButUpdated/main/Files/FPS/Accurate/60-120/Amd/FPSAccurate60AMD.cfg"
+curl -g -k -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Renders\FPSAccurate60AMD.cfg" "https://raw.githubusercontent.com/luke-beep/HoneCTRL/main/Files/FPS/Accurate/60-120/Amd/FPSAccurate60AMD.cfg"
 ) else (
 set config=FPSAccurate60AMD.cfg
 goto skip
@@ -2855,7 +2902,7 @@ goto skip
 
 if %encoder% == CPU (
 if not exist "%SYSTEMDRIVE%\HoneCTRL\Renders\FPSAccurate60Intel.cfg" ( 
-curl -g -k -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Renders\FPSAccurate60Intel.cfg" "https://raw.githubusercontent.com/M1noa/HoneCTRLButUpdated/main/Files/FPS/Accurate/60-120/Intel/FPSAccurate60Intel.cfg"
+curl -g -k -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Renders\FPSAccurate60Intel.cfg" "https://raw.githubusercontent.com/luke-beep/HoneCTRL/main/Files/FPS/Accurate/60-120/Intel/FPSAccurate60Intel.cfg"
 ) else (
 set config=FPSAccurate60Intel.cfg
 goto skip
@@ -2866,7 +2913,7 @@ goto skip
 if not exist "%SYSTEMDRIVE%\Program Files (x86)\blur" call:blurinstall
 if %encoder% == NVENC (
 if not exist "%SYSTEMDRIVE%\HoneCTRL\Renders\FPSAccurate240Nvidia.cfg" ( 
-curl -g -k -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Renders\FPSAccurate240Nvidia.cfg" "https://raw.githubusercontent.com/M1noa/HoneCTRLButUpdated/main/Files/FPS/Accurate/240/Nvidia/FPSAccurate240Nvidia.cfg"
+curl -g -k -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Renders\FPSAccurate240Nvidia.cfg" "https://raw.githubusercontent.com/luke-beep/HoneCTRL/main/Files/FPS/Accurate/240/Nvidia/FPSAccurate240Nvidia.cfg"
 ) else (
 set config=FPSAccurate240Nvidia.cfg
 goto skip
@@ -2875,7 +2922,7 @@ goto skip
 
 if %encoder% == AMF (
 if not exist "%SYSTEMDRIVE%\HoneCTRL\Renders\FPSAccurate240AMD.cfg" ( 
-curl -g -k -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Renders\FPSAccurate240AMD.cfg" "https://raw.githubusercontent.com/M1noa/HoneCTRLButUpdated/main/Files/FPS/Accurate/240/Amd/FPSAccurate240AMD.cfg"
+curl -g -k -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Renders\FPSAccurate240AMD.cfg" "https://raw.githubusercontent.com/luke-beep/HoneCTRL/main/Files/FPS/Accurate/240/Amd/FPSAccurate240AMD.cfg"
 ) else (
 set config=FPSAccurate240AMD.cfg
 goto skip
@@ -2884,7 +2931,7 @@ goto skip
 
 if %encoder% == CPU (
 if not exist "%SYSTEMDRIVE%\HoneCTRL\Renders\FPSAccurate240Intel.cfg" ( 
-curl -g -k -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Renders\FPSAccurate240Intel.cfg" "https://raw.githubusercontent.com/M1noa/HoneCTRLButUpdated/main/Files/FPS/Accurate/240/Intel/FPSAccurate240Intel.cfg"
+curl -g -k -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Renders\FPSAccurate240Intel.cfg" "https://raw.githubusercontent.com/luke-beep/HoneCTRL/main/Files/FPS/Accurate/240/Intel/FPSAccurate240Intel.cfg"
 ) else (
 set config=FPSAccurate240Intel.cfg
 goto skip
@@ -2895,7 +2942,7 @@ goto skip
 if not exist "%SYSTEMDRIVE%\Program Files (x86)\blur" call:blurinstall
 if %encoder% == NVENC (
 if not exist "%SYSTEMDRIVE%\HoneCTRL\Renders\FPSSmoothNvidia.cfg" ( 
-curl -g -k -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Renders\FPSSmoothNvidia.cfg" "https://raw.githubusercontent.com/M1noa/HoneCTRLButUpdated/main/Files/FPS/Smooth/Nvidia/FPSSmoothNvidia.cfg"
+curl -g -k -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Renders\FPSSmoothNvidia.cfg" "https://raw.githubusercontent.com/luke-beep/HoneCTRL/main/Files/FPS/Smooth/Nvidia/FPSSmoothNvidia.cfg"
 ) else (
 set config=FPSSmoothNvidia.cfg
 goto skip
@@ -2904,7 +2951,7 @@ goto skip
 
 if %encoder% == AMF (
 if not exist "%SYSTEMDRIVE%\HoneCTRL\Renders\FPSSmoothAmd.cfg.cfg" ( 
-curl -g -k -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Renders\FPSSmoothAmd.cfg" "https://raw.githubusercontent.com/M1noa/HoneCTRLButUpdated/main/Files/FPS/Smooth/Amd/FPSSmoothAmd.cfg"
+curl -g -k -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Renders\FPSSmoothAmd.cfg" "https://raw.githubusercontent.com/luke-beep/HoneCTRL/main/Files/FPS/Smooth/Amd/FPSSmoothAmd.cfg"
 ) else (
 set config=FPSSmoothAmd.cfg.cfg
 goto skip
@@ -2913,7 +2960,7 @@ goto skip
 
 if %encoder% == CPU (
 if not exist "%SYSTEMDRIVE%\HoneCTRL\Renders\FPSSmoothIntel.cfg" ( 
-curl -g -k -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Renders\FPSSmoothIntel.cfg" "https://raw.githubusercontent.com/M1noa/HoneCTRLButUpdated/main/Files/FPS/Smooth/Intel/FPSSmoothIntel.cfg"
+curl -g -k -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Renders\FPSSmoothIntel.cfg" "https://raw.githubusercontent.com/luke-beep/HoneCTRL/main/Files/FPS/Smooth/Intel/FPSSmoothIntel.cfg"
 ) else (
 set config=FPSSmoothIntel.cfg
 goto skip
@@ -2966,7 +3013,7 @@ goto MinecraftBlur
 if not exist "%SYSTEMDRIVE%\Program Files (x86)\blur" call:blurinstall
 if %encoder% == NVENC (
 if not exist "%SYSTEMDRIVE%\HoneCTRL\Renders\MinecraftAnyNvidia.cfg" ( 
-curl -g -k -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Renders\MinecraftAnyNvidia.cfg" "https://raw.githubusercontent.com/M1noa/HoneCTRLButUpdated/main/Files/Minecraft/Any/Nvidia/MinecraftAnyNvidia.cfg"
+curl -g -k -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Renders\MinecraftAnyNvidia.cfg" "https://raw.githubusercontent.com/luke-beep/HoneCTRL/main/Files/Minecraft/Any/Nvidia/MinecraftAnyNvidia.cfg"
 ) else (
 set config=MinecraftAnyNvidia.cfg
 goto skip
@@ -2975,7 +3022,7 @@ goto skip
 
 if %encoder% == AMF (
 if not exist "%SYSTEMDRIVE%\HoneCTRL\Renders\MinecraftAnyAmd.cfg" ( 
-curl -g -k -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Renders\MinecraftAnyAmd.cfg" "https://raw.githubusercontent.com/M1noa/HoneCTRLButUpdated/main/Files/Minecraft/Any/Amd/MinecraftAnyAmd.cfg"
+curl -g -k -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Renders\MinecraftAnyAmd.cfg" "https://raw.githubusercontent.com/luke-beep/HoneCTRL/main/Files/Minecraft/Any/Amd/MinecraftAnyAmd.cfg"
 ) else (
 set config=MinecraftAnyAmd.cfg
 goto skip
@@ -2984,7 +3031,7 @@ goto skip
 
 if %encoder% == CPU (
 if not exist "%SYSTEMDRIVE%\HoneCTRL\Renders\MinecraftAnyIntel.cfg" ( 
-curl -g -k -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Renders\MinecraftAnyIntel.cfg" "https://raw.githubusercontent.com/M1noa/HoneCTRLButUpdated/main/Files/Minecraft/Any/Intel/MinecraftAnyIntel.cfg"
+curl -g -k -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Renders\MinecraftAnyIntel.cfg" "https://raw.githubusercontent.com/luke-beep/HoneCTRL/main/Files/Minecraft/Any/Intel/MinecraftAnyIntel.cfg"
 ) else (
 set config=MinecraftAnyIntel.cfg
 goto skip
@@ -2995,7 +3042,7 @@ goto skip
 if not exist "%SYSTEMDRIVE%\Program Files (x86)\blur" call:blurinstall
 if %encoder% == NVENC (
 if not exist "%SYSTEMDRIVE%\HoneCTRL\Renders\Minecraft240Nvidia.cfg" ( 
-curl -g -k -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Renders\Minecraft240Nvidia.cfg" "https://raw.githubusercontent.com/M1noa/HoneCTRLButUpdated/main/Files/Minecraft/240-360/Nvidia/Minecraft240Nvidia.cfg"
+curl -g -k -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Renders\Minecraft240Nvidia.cfg" "https://raw.githubusercontent.com/luke-beep/HoneCTRL/main/Files/Minecraft/240-360/Nvidia/Minecraft240Nvidia.cfg"
 ) else (
 set config=Minecraft240Nvidia.cfg
 goto skip
@@ -3004,7 +3051,7 @@ goto skip
 
 if %encoder% == AMF (
 if not exist "%SYSTEMDRIVE%\HoneCTRL\Renders\Minecraft240Amd.cfg" ( 
-curl -g -k -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Renders\Minecraft240Amd.cfg" "https://raw.githubusercontent.com/M1noa/HoneCTRLButUpdated/main/Files/Minecraft/240-360/Amd/Minecraft240Amd.cfg"
+curl -g -k -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Renders\Minecraft240Amd.cfg" "https://raw.githubusercontent.com/luke-beep/HoneCTRL/main/Files/Minecraft/240-360/Amd/Minecraft240Amd.cfg"
 ) else (
 set config=Minecraft240Amd.cfg
 goto skip
@@ -3013,7 +3060,7 @@ goto skip
 
 if %encoder% == CPU (
 if not exist "%SYSTEMDRIVE%\HoneCTRL\Renders\Minecraft240Intel.cfg" ( 
-curl -g -k -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Renders\Minecraft240Intel.cfg" "https://raw.githubusercontent.com/M1noa/HoneCTRLButUpdated/main/Files/Minecraft/240-360/Intel/Minecraft240Intel.cfg"
+curl -g -k -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Renders\Minecraft240Intel.cfg" "https://raw.githubusercontent.com/luke-beep/HoneCTRL/main/Files/Minecraft/240-360/Intel/Minecraft240Intel.cfg"
 ) else (
 set config=Minecraft240Intel.cfg
 goto skip
@@ -3024,7 +3071,7 @@ goto skip
 if not exist "%SYSTEMDRIVE%\Program Files (x86)\blur" call:blurinstall
 if %encoder% == NVENC (
 if not exist "%SYSTEMDRIVE%\HoneCTRL\Renders\Minecraft480Nvidia.cfg" ( 
-curl -g -k -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Renders\Minecraft480Nvidia.cfg" "https://raw.githubusercontent.com/M1noa/HoneCTRLButUpdated/main/Files/Minecraft/480+/Nvidia/Minecraft480Nvidia.cfg"
+curl -g -k -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Renders\Minecraft480Nvidia.cfg" "https://raw.githubusercontent.com/luke-beep/HoneCTRL/main/Files/Minecraft/480+/Nvidia/Minecraft480Nvidia.cfg"
 ) else (
 set config=Minecraft480Nvidia.cfg
 goto skip
@@ -3033,7 +3080,7 @@ goto skip
 
 if %encoder% == AMF (
 if not exist "%SYSTEMDRIVE%\HoneCTRL\Renders\Minecraft480Amd.cfg" ( 
-curl -g -k -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Renders\Minecraft480Amd.cfg" "https://raw.githubusercontent.com/M1noa/HoneCTRLButUpdated/main/Files/Minecraft/480+/Amd/Minecraft480Amd.cfg"
+curl -g -k -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Renders\Minecraft480Amd.cfg" "https://raw.githubusercontent.com/luke-beep/HoneCTRL/main/Files/Minecraft/480+/Amd/Minecraft480Amd.cfg"
 ) else (
 set config=Minecraft480Amd.cfg
 goto skip
@@ -3042,7 +3089,7 @@ goto skip
 
 if %encoder% == CPU (
 if not exist "%SYSTEMDRIVE%\HoneCTRL\Renders\Minecraft480Intel.cfg" ( 
-curl -g -k -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Renders\Minecraft480Intel.cfg" "https://raw.githubusercontent.com/M1noa/HoneCTRLButUpdated/main/Files/Minecraft/480+/Intel/Minecraft480Intel.cfg"
+curl -g -k -L -# -o "%SYSTEMDRIVE%\HoneCTRL\Renders\Minecraft480Intel.cfg" "https://raw.githubusercontent.com/luke-beep/HoneCTRL/main/Files/Minecraft/480+/Intel/Minecraft480Intel.cfg"
 ) else (
 set config=Minecraft480Intel.cfg
 goto skip
@@ -3100,22 +3147,22 @@ goto NLEInstall
 :ProjectSettings
 cls
 if exist "%SYSTEMDRIVE%\Program Files\VEGAS\VEGAS Pro 17.0" (
-	curl -g -k -L -# -o "%TEMP%\project.reg" "https://raw.githubusercontent.com/M1noa/HoneCTRLButUpdated/main/Files/Settings/ProjectProperties17.reg"
+	curl -g -k -L -# -o "%TEMP%\project.reg" "https://raw.githubusercontent.com/luke-beep/HoneCTRL/main/Files/Settings/ProjectProperties17.reg"
 ) >nul 2>&1 else if exist "%SYSTEMDRIVE%\Program Files\VEGAS\VEGAS Pro 17" (
-	curl -g -k -L -# -o "%TEMP%\project.reg" "https://raw.githubusercontent.com/M1noa/HoneCTRLButUpdated/main/Files/Settings/ProjectProperties17.reg"
+	curl -g -k -L -# -o "%TEMP%\project.reg" "https://raw.githubusercontent.com/luke-beep/HoneCTRL/main/Files/Settings/ProjectProperties17.reg"
 ) >nul 2>&1 else if exist "%SYSTEMDRIVE%\Program Files\VEGAS\VEGAS Pro 18" (
-	curl -g -k -L -# -o "%TEMP%\project.reg" "https://raw.githubusercontent.com/M1noa/HoneCTRLButUpdated/main/Files/Settings/ProjectProperties18.reg"
+	curl -g -k -L -# -o "%TEMP%\project.reg" "https://raw.githubusercontent.com/luke-beep/HoneCTRL/main/Files/Settings/ProjectProperties18.reg"
 ) >nul 2>&1 else if exist "%SYSTEMDRIVE%\Program Files\VEGAS\VEGAS Pro 18.0" (
-	curl -g -k -L -# -o "%TEMP%\project.reg" "https://raw.githubusercontent.com/M1noa/HoneCTRLButUpdated/main/Files/Settings/ProjectProperties18.reg"
+	curl -g -k -L -# -o "%TEMP%\project.reg" "https://raw.githubusercontent.com/luke-beep/HoneCTRL/main/Files/Settings/ProjectProperties18.reg"
 ) >nul 2>&1 else if exist "%SYSTEMDRIVE%\Program Files\VEGAS\VEGAS Pro 19.0" (
-	curl -g -k -L -# -o "%TEMP%\project.reg" "https://raw.githubusercontent.com/M1noa/HoneCTRLButUpdated/main/Files/Settings/ProjectProperties18.reg"
+	curl -g -k -L -# -o "%TEMP%\project.reg" "https://raw.githubusercontent.com/luke-beep/HoneCTRL/main/Files/Settings/ProjectProperties18.reg"
 ) >nul 2>&1 else if exist "%SYSTEMDRIVE%\Program Files\VEGAS\VEGAS Pro 19" (
-	curl -g -k -L -# -o "%TEMP%\project.reg" "https://raw.githubusercontent.com/M1noa/HoneCTRLButUpdated/main/Files/Settings/ProjectProperties18.reg"
+	curl -g -k -L -# -o "%TEMP%\project.reg" "https://raw.githubusercontent.com/luke-beep/HoneCTRL/main/Files/Settings/ProjectProperties18.reg"
 ) >nul 2>&1 else echo Vegas Pro 17-19 isn't installed... & pause & goto HoneCTRLRenders
 taskkill /f /im Vegas170.exe >nul 2>&1
 taskkill /f /im Vegas180.exe >nul 2>&1
 taskkill /f /im Vegas190.exe >nul 2>&1
-curl -g -k -L -# -o "%TEMP%\HoneCTRL.veg" "https://github.com/M1noa/HoneCTRLButUpdated/raw/main/Files/Settings/Hone.veg"
+curl -g -k -L -# -o "%TEMP%\HoneCTRL.veg" "https://github.com/luke-beep/HoneCTRL/raw/main/Files/Settings/Hone.veg"
 reg import "%TEMP%\project.reg" >nul 2>&1
 start "" /D "%TEMP%\HoneCTRL.veg" >nul 2>&1
 goto HoneCTRLRenders
@@ -3339,7 +3386,7 @@ echo.
 echo %COL%[91m  WARNING:
 echo %COL%[91m  This tweak is for Wi-Fi users only, if you're on Ethernet, do not run this tweak.
 echo.
-echo   %COL%[37mFor any questions and/or concerns, please go to our GitHub: https://github.com/M1noa/HoneCTRLButUpdated
+echo   %COL%[37mFor any questions and/or concerns, please go to our GitHub: https://github.com/luke-beep/HoneCTRL
 echo.
 echo   %COL%[37mPlease enter "I understand" without quotes to continue:
 echo.
@@ -3654,7 +3701,7 @@ echo     %COL%[33m2.%COL%[37m If you don't know what a tweak is, do not use it a
 echo.
 echo     %COL%[33m3.%COL%[37m Even though we have an automatic restore point feature, we highly recommend making a manual restore point before running.
 echo.
-echo   For any questions and/or concerns, please go to our GitHub: https://github.com/M1noa/HoneCTRLButUpdated
+echo   For any questions and/or concerns, please go to our GitHub: https://github.com/luke-beep/HoneCTRL
 echo.
 echo   Please enter "I agree" without quotes to continue:
 echo.
@@ -3832,7 +3879,7 @@ if exist "%USERPROFILE%\Documents\systemtransparency.ini" del /Q "%USERPROFILE%\
 if exist "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\Clear.exe" ( goto TransparencyAuto1 ) else ( goto TransparencyAuto11 ) >nul 2>&1
 :TransparencyAuto11
 cd "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup"
-curl -g -LJ -# "https://github.com/M1noa/HoneCTRLButUpdated/raw/main/Files/Aesthetics/Clear.exe" -o "Clear.exe"
+curl -g -LJ -# "https://github.com/luke-beep/HoneCTRL/raw/main/Files/Aesthetics/Clear.exe" -o "Clear.exe"
 :TransparencyAuto1
 cd %USERPROFILE%\documents
 (
@@ -3919,7 +3966,7 @@ if exist "%USERPROFILE%\Documents\systemtransparency.ini" del /Q "%USERPROFILE%\
 if exist "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\Clear.exe" ( goto TransparencySetup1 ) else ( goto TransparencySetup11 ) >nul 2>&1
 :TransparencySetup11
 cd "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup"
-curl -g -LJ -# "https://github.com/M1noa/HoneCTRLButUpdated/raw/main/Files/Aesthetics/Clear.exe" -o "Clear.exe"
+curl -g -LJ -# "https://github.com/luke-beep/HoneCTRL/raw/main/Files/Aesthetics/Clear.exe" -o "Clear.exe"
 :TransparencySetup1
 cls
 echo.
